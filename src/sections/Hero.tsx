@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const TypewriterText = ({ texts }: { texts: string[] }) => {
@@ -72,8 +72,7 @@ export const Hero = () => {
           transition={{ delay: 0.2 }}
           className="hero__greeting"
         >
-          <Sparkles size={16} style={{ display: 'inline', marginRight: '0.5rem' }} />
-          Bienvenido a mi universo digital
+          PLAYER ONE READY
         </motion.p>
 
         <motion.h1 
@@ -82,8 +81,8 @@ export const Hero = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="hero__title"
         >
-          Hola, soy <br className="md:hidden"/>
-          <span className="name">[Tu Nombre]</span>
+          Hola, soy
+          <span className="name" data-text="[Tu Nombre]">[Tu Nombre]</span>
         </motion.h1>
 
         <motion.div 
@@ -91,7 +90,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="hero__subtitle"
-          style={{ minHeight: '1.6em', fontWeight: 'bold', fontSize: '1.5rem', color: '#ff8c42' }} // Match primary light
+          style={{ minHeight: '1.6em', fontWeight: 'bold', fontSize: '1.5rem' }} 
         >
           Soy <TypewriterText texts={["Full Stack Developer", "Creador de Soluciones", "Innovador Digital", "Arquitecto de Software"]} />
         </motion.div>
@@ -101,7 +100,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           className="hero__description"
-          style={{ maxWidth: '600px', margin: '0 auto 2.5rem', color: '#94a3b8' }}
+          style={{ maxWidth: '600px', margin: '0 auto 2.5rem' }}
         >
           Especializado en transformar ideas complejas en experiencias web fluidas y potentes.
         </motion.p>
@@ -116,10 +115,10 @@ export const Hero = () => {
             className="hero__cta hero__cta--primary"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Ver Proyectos
+            START GAME
           </button>
           <button className="hero__cta hero__cta--secondary">
-            Descargar CV
+            LOAD SAVE
           </button>
         </motion.div>
       </div>

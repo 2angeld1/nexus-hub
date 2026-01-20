@@ -3,6 +3,7 @@ import { Hero } from "./sections/Hero";
 import { Skills } from "./sections/Skills";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
+import { ParticlesBackground } from "./components/ParticlesBackground";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./styles/main.scss";
@@ -29,6 +30,9 @@ function App() {
 
   return (
     <>
+      {/* Particles Background */}
+      <ParticlesBackground />
+
       {/* Navigation */}
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav__container">
