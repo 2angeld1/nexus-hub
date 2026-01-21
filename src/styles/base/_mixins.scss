@@ -1,0 +1,19 @@
+// ============================================
+// MIXINS
+// ============================================
+
+@mixin neon-glow($intensity: 1) {
+  text-shadow: 0 0 calc(5px * #{$intensity} * var(--glow-intensity)) var(--color-primary),
+    0 0 calc(10px * #{$intensity} * var(--glow-intensity)) var(--color-primary),
+    0 0 calc(20px * #{$intensity} * var(--glow-intensity)) var(--color-primary);
+}
+
+@mixin neon-box-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

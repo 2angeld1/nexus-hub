@@ -1,6 +1,7 @@
 // ============================================
 // PROJECTS SECTION
 // ============================================
+@use '../base/mixins' as *;
 .projects {
   padding: 8rem 2rem;
   background: linear-gradient(180deg,
@@ -151,6 +152,11 @@
       color: #facc15;
       border: 1px solid rgba(234, 179, 8, 0.3);
     }
+&--concept {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
   }
 
   &__description {
@@ -345,4 +351,34 @@
   &__tag {
     border-radius: 0.5rem;
   }
+}
+
+// Aurora theme projects
+[data-theme="aurora"] .projects {
+    &__card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.2);
+        }
+    }
+
+    &__icon-btn {
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+    }
+
+    &__tag {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--color-primary);
+        border-radius: 8px;
+    }
 }

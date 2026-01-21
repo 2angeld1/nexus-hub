@@ -1,6 +1,7 @@
 // ============================================
 // HERO SECTION
 // ============================================
+@use '../base/mixins' as *;
 .hero {
   min-height: 100vh;
   display: flex;
@@ -319,4 +320,108 @@
       }
     }
   }
+}
+
+// ============================================
+// AURORA THEME - HERO SPECIFICS
+// ============================================
+[data-theme="aurora"] .hero {
+    &__background {
+        // Aurora Mesh Gradient Background
+        background:
+            radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+            radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+            radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1), transparent 50%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60vw;
+            height: 60vh;
+            background: linear-gradient(180deg, rgba(192, 132, 252, 0.2) 0%, rgba(56, 189, 248, 0.2) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            animation: pulse 10s ease-in-out infinite alternate;
+        }
+    }
+
+    &__content {
+        @include glass-effect;
+        border-radius: 32px;
+        padding: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    &__avatar {
+        border-radius: 35% 65% 60% 40% / 30% 30% 70% 70%;
+        animation: float 6s ease-in-out infinite;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+
+        img {
+            border-radius: inherit;
+            border: none;
+        }
+    }
+
+    &__title {
+        background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        .name {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__cta {
+        border-radius: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 1rem;
+
+        &--primary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #fff;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+        }
+
+        &--secondary {
+            border: none;
+            color: var(--color-text-muted);
+
+            &:hover {
+                color: #fff;
+                background: transparent;
+            }
+        }
+    }
 }

@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "React", "TypeScript", "Vite", "Next.js", 
-  "Tailwind CSS", "SCSS", "Node.js", "C#", ".NET", 
-  "SQL Server", "MongoDB", "Framer Motion", "Git", "Docker"
+  "React", "TypeScript", "Next.js", "Ionic",
+  "Node.js", "C# .NET", "Python", "SQL Server",
+  "MongoDB", "Redis", "Playwright", "Vitest",
+  "Azure DevOps", "Docker", "Clean Arch.", "SOLID"
 ];
 
 const container = {

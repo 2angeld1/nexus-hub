@@ -1,6 +1,7 @@
 // ============================================
 // SKILLS SECTION
 // ============================================
+@use '../base/mixins' as *;
 .skills {
   padding: 8rem 2rem;
   position: relative;
@@ -105,4 +106,25 @@
       box-shadow: 0 10px 30px rgba(255, 95, 31, 0.2);
     }
   }
+}
+
+// Aurora theme skills
+[data-theme="aurora"] .skills {
+    background:
+        radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.1) 0, transparent 50%);
+
+    &__item {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 // ============================================
 // NAVIGATION
 // ============================================
+@use '../base/mixins' as *;
 .nav {
   position: fixed;
   top: 0;
@@ -98,6 +99,7 @@
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    text-decoration: none; // Remove underline for anchor tag
 
     &:hover {
       background: rgba(255, 0, 170, 0.1);
@@ -179,4 +181,39 @@
       }
     }
   }
+}
+
+// Aurora theme nav
+[data-theme="aurora"] .nav {
+    &.scrolled {
+        background: rgba(3, 5, 20, 0.6);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    &__cta {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        color: var(--color-text);
+        text-transform: none;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            transform: translateY(-2px);
+        }
+    }
+
+    &__link {
+        &::after {
+            background: var(--gradient-primary);
+            height: 2px;
+            border-radius: 2px;
+        }
+    }
 }

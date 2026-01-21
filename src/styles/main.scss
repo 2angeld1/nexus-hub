@@ -3,21 +3,20 @@
 // ============================================
 
 // Base & Variables
-@import 'base/variables';
-@import 'base/reset';
-@import 'base/animations';
+@use 'base/reset';
+@use 'base/animations';
 
 // Components
-@import 'components/theme-switcher';
-@import 'components/navigation';
-@import 'components/mobile-menu';
+@use 'components/theme-switcher';
+@use 'components/navigation';
+@use 'components/mobile-menu';
 
 // Sections
-@import 'sections/hero';
-@import 'sections/skills';
-@import 'sections/experience';
-@import 'sections/projects';
-@import 'sections/footer';
+@use 'sections/hero';
+@use 'sections/skills';
+@use 'sections/experience';
+@use 'sections/projects';
+@use 'sections/footer';
 
 // Responsive
-@import 'base/responsive';
+@use 'base/responsive';

@@ -3,10 +3,11 @@ import { Hero } from "./sections/Hero";
 import { Skills } from "./sections/Skills";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
+import { Footer } from "./sections/Footer";
 import { ParticlesBackground } from "./components/ParticlesBackground";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { ThemeProvider } from "./context/ThemeContext";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./styles/main.scss";
 
@@ -55,7 +56,7 @@ function App() {
                 {item}
               </button>
             ))}
-            <button className="nav__cta">Contáctame</button>
+            <a href="tel:+50768014613" className="nav__cta">Contáctame</a>
           </div>
 
           <button className="nav__mobile-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -82,6 +83,7 @@ function App() {
                 {item}
               </button>
             ))}
+            <a href="tel:+50768014613" className="mobile-menu__link" style={{ color: 'var(--color-primary)' }}>Contáctame</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -94,20 +96,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer__container">
-          <div className="footer__brand">
-            <h3 className="footer__logo">NEXUS<span>.</span>HUB</h3>
-            <p className="footer__copyright">© 2026 Creado con React & Vite</p>
-          </div>
-
-          <div className="footer__socials">
-            <a href="#" className="footer__social-link"><Github size={20} /></a>
-            <a href="#" className="footer__social-link"><Linkedin size={20} /></a>
-            <a href="#" className="footer__social-link"><Mail size={20} /></a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </ThemeProvider>
   );
 }

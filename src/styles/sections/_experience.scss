@@ -1,6 +1,7 @@
 // ============================================
 // EXPERIENCE SECTION
 // ============================================
+@use '../base/mixins' as *;
 .experience {
   padding: 8rem 2rem;
   position: relative;
@@ -198,4 +199,42 @@
   &__period {
     border-radius: 9999px;
   }
+}
+
+// Aurora theme experience
+[data-theme="aurora"] .experience {
+    &__timeline {
+        &::before {
+            background: linear-gradient(180deg, var(--color-primary), var(--color-secondary), transparent);
+            width: 1px;
+        }
+    }
+
+    &__item {
+        &::before {
+            background: var(--color-bg);
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.2);
+        }
+    }
+
+    &__card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+        }
+    }
+
+    &__period {
+        background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(192, 132, 252, 0.1));
+        color: var(--color-text);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }

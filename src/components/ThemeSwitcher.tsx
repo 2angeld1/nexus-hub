@@ -1,21 +1,42 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gamepad2, Sparkles } from 'lucide-react';
+import { Gamepad2, Sparkles, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export function ThemeSwitcher() {
-  const { theme, toggleTheme } = useTheme();
-  const isArcade = theme === 'arcade';
+  const { theme, setTheme } = useTheme();
+
+  const cycleTheme = () => {
+    if (theme === 'arcade') setTheme('modern');
+    else if (theme === 'modern') setTheme('aurora');
+    else setTheme('arcade');
+  };
+
+  const getThemeIcon = () => {
+    switch (theme) {
+      case 'arcade': return <Gamepad2 size={24} />;
+      case 'modern': return <Sparkles size={24} />;
+      case 'aurora': return <Moon size={24} />;
+    }
+  };
+
+  const getThemeLabel = () => {
+    switch (theme) {
+      case 'arcade': return 'ARCADE';
+      case 'modern': return 'MODERN';
+      case 'aurora': return 'AURORA';
+    }
+  };
 
   return (
     <motion.button
       className="theme-switcher"
-      onClick={toggleTheme}
+      onClick={cycleTheme}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
-      title={isArcade ? 'Cambiar a Modern' : 'Cambiar a Arcade'}
+      title={`Cambiar tema (Actual: ${theme})`}
       aria-label={`Tema actual: ${theme}. Click para cambiar.`}
     >
       <AnimatePresence mode="wait">
@@ -27,16 +48,16 @@ export function ThemeSwitcher() {
           transition={{ duration: 0.3 }}
           className="theme-switcher__icon"
         >
-          {isArcade ? <Gamepad2 size={24} /> : <Sparkles size={24} />}
+          {getThemeIcon()}
         </motion.span>
       </AnimatePresence>
       
       <span className="theme-switcher__label">
-        {isArcade ? 'ARCADE' : 'MODERN'}
+        {getThemeLabel()}
       </span>
       
       {/* Glow ring for arcade theme */}
-      {isArcade && (
+      {theme === 'arcade' && (
         <motion.span
           className="theme-switcher__glow"
           animate={{

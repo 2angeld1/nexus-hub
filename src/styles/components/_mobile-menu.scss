@@ -1,6 +1,8 @@
 // ============================================
 // MOBILE MENU
 // ============================================
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
 .mobile-menu {
   position: fixed;
   inset: 0;

@@ -78,20 +78,39 @@
 }
 
 // ============================================
-// MIXINS
+// CSS CUSTOM PROPERTIES - AURORA THEME
 // ============================================
-@mixin neon-glow($intensity: 1) {
-  text-shadow: 0 0 calc(5px * #{$intensity} * var(--glow-intensity)) var(--color-primary),
-    0 0 calc(10px * #{$intensity} * var(--glow-intensity)) var(--color-primary),
-    0 0 calc(20px * #{$intensity} * var(--glow-intensity)) var(--color-primary);
+[data-theme="aurora"] {
+    // Colors
+    --color-bg: #030511; // Deep midnight blue
+    --color-bg-dark: #000000;
+    --color-surface: rgba(255, 255, 255, 0.05); // Glassy
+    --color-primary: #38bdf8; // Sky blue
+    --color-primary-light: #7dd3fc;
+    --color-secondary: #c084fc; // Soft purple
+    --color-accent: #2dd4bf; // Teal
+    --color-warning: #fcd34d;
+    --color-danger: #fb7185;
+    --color-text: #f8fafc;
+    --color-text-muted: #94a3b8;
+
+    // Gradients - Soft, Ethereal mesh gradients
+    --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #c084fc 100%);
+    --gradient-secondary: linear-gradient(135deg, #c084fc 0%, #2dd4bf 100%);
+
+    // Fonts - Modern System UI
+    --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-accent: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    // Effects
+    --border-radius: 24px;
+    --border-radius-lg: 32px;
+    --glow-intensity: 0.8;
+    --crt-effect: 0;
+
+    // Shadows - Soft colorful ambient shadows
+        --shadow-glow: 0 0 60px rgba(56, 189, 248, 0.3);
+        --shadow-hover: 0 20px 80px rgba(192, 132, 252, 0.25), 0 0 30px rgba(56, 189, 248, 0.2);
 }
 
-@mixin neon-box-glow {
-  box-shadow: var(--shadow-glow);
-}
-
-@mixin glass-effect {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}

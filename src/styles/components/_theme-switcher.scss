@@ -1,6 +1,7 @@
 // ============================================
-// THEME SWITCHER BUTTON
+// THEME SWITCHER
 // ============================================
+@use '../base/mixins' as *;
 .theme-switcher {
   position: fixed;
   bottom: 2rem;

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
-export type ThemeType = 'arcade' | 'modern';
+export type ThemeType = 'arcade' | 'modern' | 'aurora';
 
 interface ThemeContextType {
   theme: ThemeType;
@@ -16,10 +16,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<ThemeType>(() => {
     // Check localStorage for saved preference
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    if (saved === 'arcade' || saved === 'modern') {
-      return saved;
-    }
-    return 'arcade'; // Default theme
+    return (saved === 'arcade' || saved === 'modern' || saved === 'aurora') ? (saved as ThemeType) : 'arcade';
   });
 
   useEffect(() => {
