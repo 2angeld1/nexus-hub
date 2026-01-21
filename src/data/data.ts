@@ -94,21 +94,21 @@ export const experience = [
     id: 2,
     company: "Logic Studio (Cliente: ACP)",
     role: "Consultor QA Automation & Arquitectura",
-    period: "2024 - 2025",
+    period: "agosto 2024 - octubre 2024 (temporal)",
     description: "Consultoría especializada para la Autoridad del Canal de Panamá. Implementación de arquitectura de pruebas automatizadas E2E con Playwright y C#. Aplicación estricta de principios SOLID, Clean Code e integración continua (CI/CD) en Azure DevOps."
   },
   {
     id: 3,
     company: "Logic Studio S.A.",
     role: "Full Stack Web Developer",
-    period: "Mayo 2022 - 2024",
+    period: "Mayo 2022 - marzo 2025",
     description: "Liderazgo técnico para cuentas Tier-1 (Ricardo Pérez Toyota, Banesco, Seguros). Hitos clave: Migración crítica de Joomla 3 a 4, desarrollo de módulos custom en Laravel (Cookies/Cotizadores) y automatización de procesos internos con PowerApps."
   },
   {
     id: 4,
     company: "Consultor Independiente",
     role: "Full Stack & Infraestructura",
-    period: "2022 - 2024 (Paralelo)",
+    period: "2022 - 2025 (Paralelo)",
     description: "Despliegue de plataformas LMS (Moodle) y E-commerce en infraestructuras dedicadas. Desarrollo de 'WinSync Gateway' (C# Desktop): Integración de hardware (Escaners/Impresoras Virtuales) con APIs Web PHP, implementando flujos de autenticación 2FA y manejo de archivos locales."
   }
 ];
