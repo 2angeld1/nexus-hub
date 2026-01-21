@@ -1,27 +1,32 @@
 import { motion } from "framer-motion";
 import { experience } from "../data/data";
+import { fadeInUp, staggeredContainer } from "../animations/variants";
 
 export const Experience = () => {
   return (
     <section id="experience" className="experience">
       <div className="experience__container">
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
           className="experience__title"
         >
           Experiencia Laboral
         </motion.h2>
 
-        <div className="experience__timeline">
-          {experience.map((job, index) => (
+        <motion.div
+          className="experience__timeline"
+          variants={staggeredContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {experience.map((job) => (
             <motion.div 
               key={job.id}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
+              variants={fadeInUp}
               className="experience__item"
             >
               <div className="experience__card">
@@ -32,7 +37,7 @@ export const Experience = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

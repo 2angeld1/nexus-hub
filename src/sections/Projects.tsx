@@ -2,21 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { projects } from "../data/data";
 import { Github, ExternalLink, LayoutDashboard } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import { staggeredContainer, fadeInUp, fadeIn } from "../animations/variants";
 
 export const Projects = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -34,16 +20,18 @@ export const Projects = () => {
       <div className="projects__container">
         <div className="projects__header">
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="projects__label"
           >
             Portafolio
           </motion.p>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="projects__title"
           >
@@ -52,7 +40,7 @@ export const Projects = () => {
         </div>
 
         <motion.div 
-          variants={container}
+          variants={staggeredContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -61,7 +49,7 @@ export const Projects = () => {
           {projects.map((project) => (
             <motion.article 
               key={project.id}
-              variants={item}
+              variants={fadeInUp}
               className="projects__card"
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={handleMouseLeave}

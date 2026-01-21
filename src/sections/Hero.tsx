@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { fadeInUp, titleReveal, popIn } from "../animations/variants";
 
 const TypewriterText = ({ texts }: { texts: string[] }) => {
   const [index, setIndex] = useState(0);
@@ -65,9 +66,9 @@ export const Hero = () => {
       
       <div className="hero__content">
         <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          variants={popIn}
+          initial="hidden"
+          animate="show"
           className="hero__avatar"
         >
           <img 
@@ -77,8 +78,9 @@ export const Hero = () => {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
           transition={{ delay: 0.2 }}
           className="hero__greeting"
         >
@@ -86,18 +88,19 @@ export const Hero = () => {
         </motion.p>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          variants={titleReveal}
+          initial="hidden"
+          animate="show"
           className="hero__title"
         >
           Hola, soy
-          <span className="name" data-text="[Tu Nombre]">[Tu Nombre]</span>
+          <span className="name" data-text="Angel Fernandez">Angel Fernandez</span>
         </motion.h1>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
           transition={{ delay: 0.5 }}
           className="hero__subtitle"
           style={{ minHeight: '1.6em', fontWeight: 'bold', fontSize: '1.5rem' }} 
@@ -106,8 +109,9 @@ export const Hero = () => {
         </motion.div>
 
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
           transition={{ delay: 0.6 }}
           className="hero__description"
           style={{ maxWidth: '600px', margin: '0 auto 2.5rem' }}
@@ -116,8 +120,9 @@ export const Hero = () => {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="show"
           transition={{ delay: 0.7 }}
           className="hero__cta-group"
         >

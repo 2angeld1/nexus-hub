@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { staggeredContainer, popIn, fadeInUp } from "../animations/variants";
 
 const skills = [
   "React", "TypeScript", "Next.js", "Ionic",
@@ -7,28 +8,14 @@ const skills = [
   "Azure DevOps", "Docker", "Clean Arch.", "SOLID"
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08
-    }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  show: { opacity: 1, scale: 1, y: 0 }
-};
-
 export const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="skills__container">
         <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
           className="skills__label"
         >
@@ -36,8 +23,9 @@ export const Skills = () => {
         </motion.p>
         
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
           className="skills__title"
         >
@@ -45,7 +33,7 @@ export const Skills = () => {
         </motion.h2>
 
         <motion.div 
-          variants={container}
+          variants={staggeredContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -54,7 +42,7 @@ export const Skills = () => {
           {skills.map((skill) => (
             <motion.div
               key={skill}
-              variants={item}
+              variants={popIn}
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               className="skills__item"
