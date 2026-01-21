@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const TypewriterText = ({ texts }: { texts: string[] }) => {
   const [index, setIndex] = useState(0);
@@ -48,7 +49,16 @@ const TypewriterText = ({ texts }: { texts: string[] }) => {
   );
 };
 
+
 export const Hero = () => {
+  const { theme } = useTheme();
+  const isArcade = theme === 'arcade';
+
+  // Theme-specific content
+  const greeting = isArcade ? "PLAYER ONE READY" : "WELCOME";
+  const primaryCta = isArcade ? "START GAME" : "Ver Proyectos";
+  const secondaryCta = isArcade ? "LOAD SAVE" : "Descargar CV";
+
   return (
     <section className="hero">
       <div className="hero__background" />
@@ -72,7 +82,7 @@ export const Hero = () => {
           transition={{ delay: 0.2 }}
           className="hero__greeting"
         >
-          PLAYER ONE READY
+          {greeting}
         </motion.p>
 
         <motion.h1 
@@ -115,10 +125,10 @@ export const Hero = () => {
             className="hero__cta hero__cta--primary"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            START GAME
+            {primaryCta}
           </button>
           <button className="hero__cta hero__cta--secondary">
-            LOAD SAVE
+            {secondaryCta}
           </button>
         </motion.div>
       </div>

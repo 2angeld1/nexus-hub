@@ -1,0 +1,78 @@
+// ============================================
+// RESET & BASE STYLES
+// ============================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+// CRT Effect - Only for Arcade theme
+[data-theme="arcade"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+// Vignette Effect - Only for Arcade theme
+[data-theme="arcade"] body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+::selection {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    background: var(--gradient-secondary);
+  }
+}

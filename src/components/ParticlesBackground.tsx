@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
+import { useTheme } from "../context/ThemeContext";
 
 export const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -101,7 +103,8 @@ export const ParticlesBackground = () => {
     detectRetina: true,
   };
 
-  if (!init) {
+  // Only show particles in arcade theme
+  if (!init || theme !== 'arcade') {
     return null;
   }
 

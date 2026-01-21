@@ -1,0 +1,201 @@
+// ============================================
+// EXPERIENCE SECTION
+// ============================================
+.experience {
+  padding: 8rem 2rem;
+  position: relative;
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: var(--color-accent);
+  }
+
+  &__timeline {
+    position: relative;
+    margin-left: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg,
+          var(--color-primary),
+          var(--color-secondary),
+          transparent);
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--color-bg);
+      border: 3px solid var(--color-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 95, 31, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+      background: var(--color-primary);
+      transform: scale(1.2);
+    }
+  }
+
+  &__card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 95, 31, 0.3);
+      transform: translateX(8px);
+    }
+  }
+
+  &__period {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    background: rgba(255, 95, 31, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.75rem;
+  }
+
+  &__role {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  &__company {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+}
+
+// Arcade theme experience
+[data-theme="arcade"] .experience {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 20% 50%,
+        rgba(255, 0, 170, 0.05) 0%,
+        transparent 50%),
+      radial-gradient(ellipse at 80% 50%,
+        rgba(0, 212, 255, 0.05) 0%,
+        transparent 50%);
+    pointer-events: none;
+  }
+
+  &__title {
+    font-weight: 900;
+    @include neon-glow(0.5);
+  }
+
+  &__timeline {
+    margin-left: 2rem;
+
+    &::before {
+      background: linear-gradient(180deg,
+          #00ff88,
+          #ff00aa,
+          #00d4ff,
+          transparent);
+    }
+  }
+
+  &__item {
+    &::before {
+      width: 18px;
+      height: 18px;
+      left: -8px;
+      border-radius: 0;
+      box-shadow: 0 0 15px var(--color-primary);
+    }
+  }
+
+  &__card {
+    background: rgba(18, 18, 26, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 0;
+
+    &:hover {
+      border-color: var(--color-primary);
+      @include neon-box-glow;
+      transform: translateX(10px);
+    }
+  }
+
+  &__period {
+    font-size: 0.6rem;
+    color: var(--color-bg);
+    background: linear-gradient(90deg, #00ff88, #00d4ff);
+    border-radius: 0;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  &__company {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--color-secondary);
+    text-shadow: 0 0 5px var(--color-secondary), 0 0 10px var(--color-secondary);
+  }
+
+  &__description {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+  }
+}
+
+// Modern theme experience
+[data-theme="modern"] .experience {
+  background: linear-gradient(180deg,
+      transparent,
+      rgba(255, 95, 31, 0.03),
+      transparent);
+
+  &__period {
+    border-radius: 9999px;
+  }
+}

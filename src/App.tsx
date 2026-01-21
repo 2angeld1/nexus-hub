@@ -4,6 +4,8 @@ import { Skills } from "./sections/Skills";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
 import { ParticlesBackground } from "./components/ParticlesBackground";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./styles/main.scss";
@@ -29,9 +31,12 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider>
       {/* Particles Background */}
       <ParticlesBackground />
+
+      {/* Theme Switcher Floating Button */}
+      <ThemeSwitcher />
 
       {/* Navigation */}
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
@@ -103,7 +108,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </>
+    </ThemeProvider>
   );
 }
 
