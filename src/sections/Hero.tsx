@@ -44,7 +44,7 @@ const TypewriterText = ({ texts }: { texts: string[] }) => {
 
   return (
     <span className="typewriter">
-      {display} 
+      {display}
       <span style={{ opacity: blink ? 1 : 0 }}>|</span>
     </span>
   );
@@ -63,7 +63,7 @@ export const Hero = () => {
   return (
     <section className="hero">
       <div className="hero__background" />
-      
+
       <div className="hero__content">
         <motion.div
           variants={popIn}
@@ -71,9 +71,9 @@ export const Hero = () => {
           animate="show"
           className="hero__avatar"
         >
-          <img 
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400" 
-            alt="Profile" 
+          <img
+            src="/projects/profile.jpeg"
+            alt="Profile"
           />
         </motion.div>
 
@@ -87,7 +87,7 @@ export const Hero = () => {
           {greeting}
         </motion.p>
 
-        <motion.h1 
+        <motion.h1
           variants={titleReveal}
           initial="hidden"
           animate="show"
@@ -97,18 +97,18 @@ export const Hero = () => {
           <span className="name" data-text="Angel Fernandez">Angel Fernandez</span>
         </motion.h1>
 
-        <motion.div 
+        <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate="show"
           transition={{ delay: 0.5 }}
           className="hero__subtitle"
-          style={{ minHeight: '1.6em', fontWeight: 'bold', fontSize: '1.5rem' }} 
+          style={{ minHeight: '1.6em', fontWeight: 'bold', fontSize: '1.5rem' }}
         >
           Soy <TypewriterText texts={["Full Stack Developer", "Creador de Soluciones", "Innovador Digital", "Arquitecto de Software"]} />
         </motion.div>
 
-        <motion.p 
+        <motion.p
           variants={fadeInUp}
           initial="hidden"
           animate="show"
@@ -126,7 +126,7 @@ export const Hero = () => {
           transition={{ delay: 0.7 }}
           className="hero__cta-group"
         >
-          <button 
+          <button
             className="hero__cta hero__cta--primary"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
@@ -138,7 +138,7 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
