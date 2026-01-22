@@ -1,11 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { projects } from "../data/data";
-import { Github, ExternalLink, LayoutDashboard } from "lucide-react";
+import { Github, ExternalLink, LayoutDashboard, X } from "lucide-react";
 import { staggeredContainer, fadeInUp, fadeIn } from "../animations/variants";
 
 export const Projects = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const handleMouseEnter = (id: string) => {
     setHoveredId(id);
@@ -54,7 +55,11 @@ export const Projects = () => {
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="projects__image">
+              <div
+                className="projects__image"
+                onClick={() => project.videoUrl && setSelectedVideo(project.videoUrl)}
+                style={{ cursor: project.videoUrl ? 'pointer' : 'default' }}
+              >
                 <img src={project.imageUrl} alt={project.title} style={{ opacity: hoveredId === project.id && project.videoUrl ? 0 : 1 }} />
 
                 {project.videoUrl && (
@@ -84,7 +89,10 @@ export const Projects = () => {
                   {project.repoUrl && (
                     <button
                       className="projects__icon-btn projects__icon-btn--github"
-                      onClick={() => window.open(project.repoUrl, "_blank")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.repoUrl, "_blank");
+                      }}
                       title="Ver Código"
                       aria-label="Ver Código Fuente"
                     >
@@ -96,7 +104,10 @@ export const Projects = () => {
                   {project.dashboardUrl && (
                     <button
                       className="projects__icon-btn projects__icon-btn--demo"
-                      onClick={() => window.open(project.dashboardUrl, "_blank")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.dashboardUrl, "_blank");
+                      }}
                       title="Ver Dashboard"
                       aria-label="Ver Dashboard Admin"
                       style={{ background: 'var(--gradient-secondary)', borderColor: 'transparent' }}
@@ -109,7 +120,10 @@ export const Projects = () => {
                   {project.demoUrl && (
                     <button
                       className="projects__icon-btn projects__icon-btn--demo"
-                      onClick={() => window.open(project.demoUrl, "_blank")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.demoUrl, "_blank");
+                      }}
                       title="Ver Demo"
                       aria-label="Ver Demo"
                     >
@@ -140,6 +154,34 @@ export const Projects = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="project-modal"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <div className="project-modal__content" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="project-modal__close"
+                onClick={() => setSelectedVideo(null)}
+              >
+                <X size={24} />
+              </button>
+              <video
+                src={selectedVideo}
+                controls
+                autoPlay
+                className="project-modal__video"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
