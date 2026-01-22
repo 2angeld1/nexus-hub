@@ -51,6 +51,7 @@ export const projects: Project[] = [
     description: "Plataforma Automotriz End-to-End totalmente autónoma. Incluye Storefront Luxury y CMS administrativo propio para gestión de leads, inventario y cotizaciones.",
     tags: ["React", "Custom CMS", "Node.js", "Marketplace"],
     imageUrl: "/projects/velodrive.png",
+    videoUrl: "/videos/velodrive.mp4",
     demoUrl: "https://autos-react-front.vercel.app",
     dashboardUrl: "https://autos-react-dashboard.vercel.app",
     repoUrl: "https://github.com/2angeld1/autos-react-vite",
@@ -62,6 +63,7 @@ export const projects: Project[] = [
     description: "Agregador de medios interactivo multi-api. V2 en desarrollo implementando motores de recomendación personalizados basados en gustos de usuario mediante IA.",
     tags: ["React", "API Aggregation", "Python AI"],
     imageUrl: "/projects/moviefinder.png",
+    videoUrl: "/videos/moviefinder.mp4",
     demoUrl: "https://buscado-peliculas.vercel.app",
     repoUrl: "https://github.com/2angeld1/buscado-peliculas",
     status: "completed"
