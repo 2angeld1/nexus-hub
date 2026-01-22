@@ -18,6 +18,7 @@ export const projects: Project[] = [
     description: "Solución SaaS nacida de una necesidad personal para digitalizar mi comunidad. Reemplazó flujos manuales (Excel/Papel) por un ecosistema digital de eventos y logística, optimizando recursos en tiempo real.",
     tags: ["Ionic React", "Founder", "Digital Transformation"],
     imageUrl: "/projects/mpolog.png",
+    videoUrl: "/videos/mpolog.mp4",
     demoUrl: "https://mpolog.vercel.app",
     repoUrl: "https://github.com/2angeld1/MPOLOG",
     status: "completed"
@@ -28,6 +29,7 @@ export const projects: Project[] = [
     description: "Producto propio desarrollado como co-dueño de Foodtruck. Diseñado como alternativa móvil-nativa y ligera a Zoho para el mercado regional. Centraliza inventario, ventas y operación en una app rápida sin bloatware web.",
     tags: ["Ionic React", "Product Owner", "Mobile First"],
     imageUrl: "/projects/kitchy.png",
+    videoUrl: "/videos/kitchy.mp4",
     demoUrl: "https://kitchy-one.vercel.app",
     repoUrl: "https://github.com/2angeld1/Kitchy",
     status: "completed"
@@ -38,6 +40,7 @@ export const projects: Project[] = [
     description: "Asistente de movilidad predictiva. Backend Python con ML para analizar patrones de ruta y sugerir trayectos óptimos antes de salir de casa.",
     tags: ["Python", "Machine Learning", "Ionic Native"],
     imageUrl: "/projects/ionicmaps.png",
+    videoUrl: "/videos/ionicnotif.mp4",
     demoUrl: "https://ionicnotif.vercel.app",
     repoUrl: "https://github.com/2angeld1/IonicNotif",
     status: "completed"

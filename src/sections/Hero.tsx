@@ -94,7 +94,7 @@ export const Hero = () => {
           className="hero__title"
         >
           Hola, soy
-          <span className="name" data-text="Angel Fernandez">Angel Fernandez</span>
+          <span className="name" data-text="Angel Fernandez">[Angel Fernandez]</span>
         </motion.h1>
 
         <motion.div

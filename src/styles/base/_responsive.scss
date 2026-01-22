@@ -40,3 +40,42 @@
     }
   }
 }
+
+// ============================================
+// ARCADE THEME MOBILE OVERRIDES
+// ============================================
+[data-theme="arcade"] {
+  @media (max-width: 768px) {
+    .hero__content {
+      padding: 1.5rem;
+    }
+
+    .hero__title {
+      font-size: 1.4rem;
+      line-height: 1.4;
+
+      .name {
+        font-size: 1.8rem;
+        display: block;
+        margin-top: 0.5rem;
+        word-break: break-word;
+        /* Evita desbordamientos */
+      }
+    }
+
+    .projects__card {
+      border-width: 2px;
+      /* Bordes más finos en móvil */
+    }
+
+    /* Ajustar espaciado de skills en móvil */
+    .skills__grid {
+      gap: 1rem;
+    }
+
+    .skills__item {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+    }
+  }
+}
