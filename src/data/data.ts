@@ -93,7 +93,7 @@ export const experience = [
     company: "Payday Software",
     role: "Frontend Lead & UI Architect",
     period: "Marzo 2025 - Presente",
-    description: "Co-liderazgo en la modernización de la plataforma hacia Clean Architecture (React/Vite/TS). Responsable del Governance Frontend: Code Reviews, estandarización SOLID y refactorización continua. Implementación de capas de caché (Redis) y optimización de rendimiento, logrando acelerar el Time-to-Market de la versión Beta."
+    description: "Co-liderazgo en la modernización de la plataforma: Migración de Monolito Legacy (Razor Pages) a SPA Clean Architecture (React/Vite/TS). Responsable del Governance Frontend: Code Reviews, estandarización SOLID, implementación de Redis y optimización de Time-to-Market."
   },
   {
     id: 2,
@@ -107,7 +107,7 @@ export const experience = [
     company: "Logic Studio S.A.",
     role: "Full Stack Web Developer",
     period: "Mayo 2022 - marzo 2025",
-    description: "Liderazgo técnico para cuentas Tier-1 (Ricardo Pérez Toyota, Banesco, Seguros). Hitos clave: Migración crítica de Joomla 3 a 4, desarrollo de módulos custom en Laravel (Cookies/Cotizadores) y automatización de procesos internos con PowerApps."
+    description: "Liderazgo técnico para cuentas Tier-1 (Ricardo Pérez Toyota, Banesco). Hitos clave: Migración crítica en ecosistema PHP (Joomla 3 a 4), desarrollo de módulos custom en Laravel y automatización de procesos con PowerApps."
   },
   {
     id: 4,

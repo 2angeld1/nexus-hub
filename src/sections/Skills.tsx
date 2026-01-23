@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { staggeredContainer, popIn, fadeInUp } from "../animations/variants";
 
 const skills = [
-  "React", "TypeScript", "Next.js", "Ionic",
-  "Node.js", "C# .NET", "Python", "SQL Server",
-  "MongoDB", "Redis", "Playwright", "Vitest",
-  "Azure DevOps", "Docker", "Clean Arch.", "SOLID"
+  "React", "Angular", "Vue", "TypeScript",
+  "Next.js", "Ionic", "Node.js", "Python",
+  "C# .NET", "Razor Pages", "PHP", "Laravel",
+  "SQL Server", "MongoDB", "Redis", "Docker",
+  "Azure DevOps", "Playwright", "Vitest", "Clean Arch."
 ];
 
 export const Skills = () => {
