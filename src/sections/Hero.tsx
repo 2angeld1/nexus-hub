@@ -132,9 +132,14 @@ export const Hero = () => {
           >
             {primaryCta}
           </button>
-          <button className="hero__cta hero__cta--secondary">
+          <a
+            href="/projects/AngelFernandezResume2026.pdf"
+            download="AngelFernandezResume2026.pdf"
+            className="hero__cta hero__cta--secondary"
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
+          >
             {secondaryCta}
-          </button>
+          </a>
         </motion.div>
       </div>
 
