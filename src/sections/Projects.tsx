@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { projects } from "../data/data";
-import { Github, ExternalLink, LayoutDashboard, X } from "lucide-react";
+import { Github, ExternalLink, LayoutDashboard, X, Smartphone } from "lucide-react";
 import { staggeredContainer, fadeInUp, fadeIn } from "../animations/variants";
 
 export const Projects = () => {
@@ -113,6 +113,22 @@ export const Projects = () => {
                       style={{ background: 'var(--gradient-secondary)', borderColor: 'transparent' }}
                     >
                       <LayoutDashboard size={22} />
+                    </button>
+                  )}
+
+                  {/* App Link */}
+                  {project.appUrl && (
+                    <button
+                      className="projects__icon-btn projects__icon-btn--demo"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.appUrl, "_blank");
+                      }}
+                      title="Ver App Móvil"
+                      aria-label="Ver App Móvil"
+                      style={{ background: '#8b5cf6', borderColor: 'transparent' }} // Violeta para App
+                    >
+                      <Smartphone size={22} />
                     </button>
                   )}
 

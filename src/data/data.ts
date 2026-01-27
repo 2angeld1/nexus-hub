@@ -7,6 +7,7 @@ export interface Project {
   demoUrl?: string;
   repoUrl?: string; // GitHub Link
   dashboardUrl?: string; // Optional Dashboard Link
+  appUrl?: string; // Optional App Link
   videoUrl?: string; // Optional Video Preview
   status: "completed" | "in-progress" | "concept";
 }
@@ -48,12 +49,13 @@ export const projects: Project[] = [
   {
     id: "car-catalog",
     title: "Velodrive Suite",
-    description: "Plataforma Automotriz End-to-End totalmente autónoma. Incluye Storefront Luxury y CMS administrativo propio para gestión de leads, inventario y cotizaciones.",
+    description: "Plataforma Automotriz End-to-End totalmente autónoma. Incluye Storefront Luxury y CMS administrativo propio. Actualmente integro un módulo experimental de inspección 3D/AR que permite visualizar diagnósticos sobre un modelo interactivo en tiempo real.",
     tags: ["React", "Custom CMS", "Node.js", "Marketplace"],
     imageUrl: "/projects/velodrive.png",
     videoUrl: "/videos/velodrive.mp4",
     demoUrl: "https://autos-react-front.vercel.app",
     dashboardUrl: "https://autos-react-dashboard.vercel.app",
+    appUrl: "https://velodrive-mobile.vercel.app",
     repoUrl: "https://github.com/2angeld1/autos-react-vite",
     status: "completed"
   },
