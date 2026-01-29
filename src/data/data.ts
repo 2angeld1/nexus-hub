@@ -85,6 +85,7 @@ export const projects: Project[] = [
     description: "E-commerce especializado para activos arquitectónicos. Plataforma MERN completa para gestión de planos, diseños y servicios profesionales.",
     tags: ["MERN Stack", "E-commerce", "Mongo DB"],
     imageUrl: "/projects/architect.png",
+    demoUrl: "https://architect-x.vercel.app/",
     status: "concept"
   }
 ];
