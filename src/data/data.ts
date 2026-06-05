@@ -26,9 +26,9 @@ export const projects: Project[] = [
   },
   {
     id: "kitchy",
-    title: "Kitchy Systems",
-    description: "Producto propio desarrollado como co-dueño de Foodtruck. Diseñado como alternativa móvil-nativa y ligera a Zoho para el mercado regional. Centraliza inventario, ventas y operación en una app rápida sin bloatware web.",
-    tags: ["Ionic React", "Product Owner", "Mobile First"],
+    title: "Kitchy & Vesta",
+    description: "Ecosistema POS inteligente dual diseñado para PyMEs en Latinoamérica. Kitchy gestiona gastronomía, fruterías y salones de belleza (con comisiones para especialistas y turnos); Vesta automatiza servicios como lavautos y jardinería. Integrados con Caitlyn, un motor de IA que automatiza el costeo de producción consultando precios de mercados locales (Merca Panamá, ACODECO, SNE combustible) en tiempo real.",
+    tags: ["React Native", "Expo", "Node.js", "FastAPI AI"],
     imageUrl: "/projects/kitchy.png",
     videoUrl: "/videos/kitchy.mp4",
     demoUrl: "https://kitchy-one.vercel.app",
@@ -38,12 +38,48 @@ export const projects: Project[] = [
   {
     id: "focus-alert",
     title: "FocusAlert AI",
-    description: "Asistente de movilidad predictiva. Backend Python con ML para analizar patrones de ruta y sugerir trayectos óptimos antes de salir de casa.",
-    tags: ["Python", "Machine Learning", "Ionic Native"],
+    description: "Asistente de movilidad predictiva (IonicNotif). App móvil/web que predice tiempos de ruta reales sobre calles mediante OSRM y un regresor de Random Forest entrenado en FastAPI. Ajusta las estimaciones de viaje según incidencias viales, hora, día de la semana y el clima en tiempo real usando OpenWeatherMap.",
+    tags: ["Ionic React", "FastAPI", "Machine Learning", "OSRM Maps"],
     imageUrl: "/projects/ionicmaps.png",
     videoUrl: "/videos/ionicnotif.mp4",
     demoUrl: "https://ionicnotif.vercel.app",
     repoUrl: "https://github.com/2angeld1/IonicNotif",
+    status: "completed"
+  },
+  {
+    id: "muelle",
+    title: "Muelle - Inteligencia Logística",
+    description: "Plataforma SaaS para optimizar la cadena de suministro marítima y aduanera. Incorpora Caitlyn AI (FastAPI + Playwright + EasyOCR), un agente autónomo que navega portales de navieras en paralelo para cazar itinerarios en tiempo real y ofrece logs interactivos vía WebSockets. Incluye un validador aduanero que audita documentos contra multas.",
+    tags: ["Next.js 16", "React 19", "FastAPI & Python", "Playwright"],
+    imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600",
+    repoUrl: "https://github.com/2angeld1/Muelle",
+    status: "completed"
+  },
+  {
+    id: "verso",
+    title: "Verso - Legacy Migrator",
+    description: "Herramienta SaaS de modernización de código para la traducción masiva de repositorios. Combina la potencia semántica de LLMs (Gemini/Cohere) con un motor en Rust para la validación estricta de sintaxis a nivel AST y un sistema de caché de traducciones en memoria, asegurando consistencia y determinismo en migraciones de PHP, COBOL y Java.",
+    tags: ["Rust Core", "Next.js", "AST Parsing", "AI Orchestrator"],
+    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600",
+    repoUrl: "https://github.com/2angeld1/Verso",
+    status: "completed"
+  },
+  {
+    id: "gosen-engines",
+    title: "Gosen Engines",
+    description: "Monorepo de alto rendimiento en Rust (Cargo Workspaces) que centraliza la capa de cálculo y procesamiento de IA del ecosistema Gosen Tech. Aloja kitchy-router (OCR de facturas con Gemini Flash Vision), verso-router (procesamiento sintáctico de código para Verso), y librerías optimizadas de compresión WebP en milisegundos.",
+    tags: ["Rust", "Axum & Tokio", "Cargo Workspaces", "AI Concurrency"],
+    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1600",
+    repoUrl: "https://github.com/2angeld1/gosen-engines",
+    status: "completed"
+  },
+  {
+    id: "agrolink",
+    title: "AgroLink Panamá",
+    description: "Plataforma de comercio agrícola 'inDrive' para el agro, diseñada para conectar de forma directa a productores y compradores en Panamá. Los clientes publican demandas de productos frescos, los productores cercanos ofertan en tiempo real y el flujo de despacho logístico se valida y rastrea con códigos QR dinámicos.",
+    tags: ["Ionic React", "Node.js & Express", "MongoDB", "Capacitor"],
+    imageUrl: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=1600",
+    repoUrl: "https://github.com/2angeld1/AgroLink",
     status: "completed"
   },
   {
@@ -81,16 +117,24 @@ export const projects: Project[] = [
   },
   {
     id: "archiquect",
-    title: "Archiquect (En Construcción)",
-    description: "E-commerce especializado para activos arquitectónicos. Plataforma MERN completa para gestión de planos, diseños y servicios profesionales.",
-    tags: ["MERN Stack", "E-commerce", "Mongo DB"],
+    title: "Archiquect",
+    description: "E-commerce especializado para planos y activos arquitectónicos. Plataforma MERN/PERN completa (React + Node.js + Express + Prisma + PostgreSQL) con un flujo de checkout interactivo de 4 pasos, compras directas y cotizaciones personalizadas.",
+    tags: ["React & TS", "Prisma & Postgres", "Tailwind CSS", "Express API"],
     imageUrl: "/projects/architect.png",
     demoUrl: "https://architect-x.vercel.app/",
-    status: "concept"
+    repoUrl: "https://github.com/2angeld1/Architect",
+    status: "completed"
   }
 ];
 
 export const experience = [
+  {
+    id: 0,
+    company: "UTP Incuba (Dirección de Gestión y Transferencia del Conocimiento - UTP)",
+    role: "Emprendedor en Incubación - Programa de Innovación",
+    period: "Marzo 2026 - Presente",
+    description: "Participante activo en el programa de incubación de empresas de base tecnológica. Desarrollo y validación técnica/comercial de soluciones de software de alto impacto (Muelle y Verso) bajo mentorías especializadas en propiedad intelectual, modelo de negocios y validación de mercado (Programa ACCIONA)."
+  },
   {
     id: 1,
     company: "Payday Software",
@@ -120,3 +164,4 @@ export const experience = [
     description: "Despliegue de plataformas LMS (Moodle) y E-commerce en infraestructuras dedicadas. Desarrollo de 'WinSync Gateway' (C# Desktop): Integración de hardware (Escaners/Impresoras Virtuales) con APIs Web PHP, implementando flujos de autenticación 2FA y manejo de archivos locales."
   }
 ];
+
