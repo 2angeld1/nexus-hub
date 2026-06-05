@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Hero } from "./sections/Hero";
 import { Skills } from "./sections/Skills";
 import { Experience } from "./sections/Experience";
+import { Caitlyn } from "./sections/Caitlyn";
 import { Projects } from "./sections/Projects";
 import { Footer } from "./sections/Footer";
 import { ParticlesBackground } from "./components/ParticlesBackground";
@@ -47,7 +48,7 @@ function App() {
           </span>
 
           <div className="nav__links">
-            {["Skills", "Experience", "Projects"].map((item) => (
+            {["Skills", "Experience", "Caitlyn", "Projects"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -74,7 +75,7 @@ function App() {
             exit={{ opacity: 0, x: 100 }}
             className="mobile-menu"
           >
-            {["Skills", "Experience", "Projects"].map((item) => (
+            {["Skills", "Experience", "Caitlyn", "Projects"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -92,6 +93,7 @@ function App() {
         <Hero />
         <Skills />
         <Experience />
+        <Caitlyn />
         <Projects />
       </main>
 

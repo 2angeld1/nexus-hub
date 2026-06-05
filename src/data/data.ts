@@ -17,7 +17,7 @@ export const projects: Project[] = [
     id: "mpolog",
     title: "MPOLOG - Cloud Logistics",
     description: "Solución SaaS nacida de una necesidad personal para digitalizar mi comunidad. Reemplazó flujos manuales (Excel/Papel) por un ecosistema digital de eventos y logística, optimizando recursos en tiempo real.",
-    tags: ["Ionic React", "Founder", "Digital Transformation"],
+    tags: ["Flutter", "Founder", "Digital Transformation"],
     imageUrl: "/projects/mpolog.png",
     videoUrl: "/videos/mpolog.mp4",
     demoUrl: "https://mpolog.vercel.app",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     id: "agrolink",
     title: "AgroLink Panamá",
     description: "Plataforma de comercio agrícola 'inDrive' para el agro, diseñada para conectar de forma directa a productores y compradores en Panamá. Los clientes publican demandas de productos frescos, los productores cercanos ofertan en tiempo real y el flujo de despacho logístico se valida y rastrea con códigos QR dinámicos.",
-    tags: ["Ionic React", "Node.js & Express", "MongoDB", "Capacitor"],
+    tags: ["React Native", "Node.js & Express", "MongoDB", "Expo"],
     imageUrl: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=1600",
     repoUrl: "https://github.com/2angeld1/AgroLink",
     status: "completed"
