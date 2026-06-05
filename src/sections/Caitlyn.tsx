@@ -69,7 +69,7 @@ export const Caitlyn = () => {
   const [activeTab, setActiveTab] = useState<"general" | "beauty" | "market">("general");
   const [logs, setLogs] = useState<Array<{ text: string; type: string }>>([]);
   const logIndexRef = useRef(0);
-  const consoleEndRef = useRef<HTMLDivElement>(null);
+  const consoleBodyRef = useRef<HTMLDivElement>(null);
 
   // Cycle through log messages to simulate terminal logs
   useEffect(() => {
@@ -91,10 +91,10 @@ export const Caitlyn = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll terminal
+  // Auto-scroll terminal sin afectar el viewport global
   useEffect(() => {
-    if (consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (consoleBodyRef.current) {
+      consoleBodyRef.current.scrollTop = consoleBodyRef.current.scrollHeight;
     }
   }, [logs]);
 
@@ -249,13 +249,12 @@ export const Caitlyn = () => {
                   <span className="caitlyn__console-title">Live event narration (websockets)</span>
                 </div>
                 
-                <div style={{ height: '95px', overflowY: 'hidden' }}>
+                <div ref={consoleBodyRef} style={{ height: '95px', overflowY: 'hidden' }}>
                   {logs.map((log, index) => (
                     <div key={index} className={`caitlyn__console-line caitlyn__console-line--${log.type}`}>
                       &gt; {log.text}
                     </div>
                   ))}
-                  <div ref={consoleEndRef} />
                 </div>
               </div>
             </div>
