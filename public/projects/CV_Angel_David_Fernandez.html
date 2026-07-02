@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Angel David Fernández - Senior Software Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1e293b;
+      --color-secondary: #ff5f1f;
+      --color-text-main: #334155;
+      --color-text-dark: #0f172a;
+      --color-text-muted: #64748b;
+      --color-border: #e2e8f0;
+      --color-bg-sidebar: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--color-text-main);
+      background-color: #ffffff;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      min-height: 100vh;
+      border-right: 1px solid var(--color-border);
+    }
+
+    /* Sidebar (Left Column) */
+    .sidebar {
+      background-color: var(--color-bg-sidebar);
+      border-right: 1px solid var(--color-border);
+      padding: 2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .profile-header-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-text-dark);
+      line-height: 1.2;
+    }
+
+    .profile-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title-sidebar {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--color-text-muted);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      color: var(--color-text-dark);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-value:hover {
+      color: var(--color-secondary);
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .skill-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-dark);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    .languages-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .language-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .language-name {
+      font-weight: 600;
+      color: var(--color-text-dark);
+    }
+
+    .language-level {
+      color: var(--color-text-muted);
+      font-size: 0.7rem;
+    }
+
+    /* Main Content (Right Column) */
+    .main-content {
+      padding: 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .profile-summary {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--color-text-main);
+    }
+
+    .profile-summary strong {
+      color: var(--color-text-dark);
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-text-dark);
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .experience-list, .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .experience-item, .project-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      page-break-inside: avoid;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-dark);
+    }
+
+    .item-company {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+    }
+
+    .item-period {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .item-bullets {
+      list-style-type: square;
+      padding-left: 1rem;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      color: var(--color-text-main);
+    }
+
+    .item-bullets li::marker {
+      color: var(--color-secondary);
+    }
+
+    .item-bullets strong {
+      color: var(--color-text-dark);
+    }
+
+    .education-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      page-break-inside: avoid;
+    }
+
+    .education-degree {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-text-dark);
+    }
+
+    .education-institution {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    /* Print styling rules */
+    @media print {
+      body {
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 9.5pt;
+      }
+
+      .cv-container {
+        display: grid !important;
+        grid-template-columns: 210px 1fr !important;
+        min-height: 0;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .sidebar {
+        background-color: #f8fafc !important;
+        border-right: 1px solid #cbd5e1 !important;
+        padding: 1.5rem 0.75rem 0 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .main-content {
+        padding: 1.5rem 0 0 1.25rem !important;
+      }
+
+      .skill-tag {
+        border-color: #cbd5e1 !important;
+        background-color: #ffffff !important;
+        font-size: 7pt;
+      }
+
+      a {
+        color: #000000 !important;
+        text-decoration: none;
+      }
+
+      .section-title {
+        border-bottom-color: #cbd5e1 !important;
+        margin-bottom: 0.6rem;
+      }
+
+      .experience-item, .project-item, .education-item {
+        page-break-inside: avoid;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+    }
+
+    /* Mobile Responsive styling - Screen only to avoid hijacking Print */
+    @media screen and (max-width: 768px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.5rem 1rem;
+      }
+
+      .main-content {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+    
+    <!-- Sidebar / Left Column -->
+    <aside class="sidebar">
+      
+      <!-- Profile Identification -->
+      <div class="profile-header-sidebar">
+        <h1 class="profile-name">Angel David Fernández</h1>
+        <span class="profile-title">Senior Software Architect<br>& Fullstack Lead</span>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="section-title-sidebar">Contacto</h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-label">Correo</span>
+            <a href="mailto:adfp21900@gmail.com" class="contact-value">adfp21900@gmail.com</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Teléfono</span>
+            <a href="tel:+50768014613" class="contact-value">+507 6801-4613</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Ubicación</span>
+            <span class="contact-value">Panamá Oeste, Panamá</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://linkedin.com/in/angel-david-fernandez-11a4a1235" target="_blank" class="contact-value">linkedin.com/in/angel-david-fernandez-11a4a1235</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">GitHub</span>
+            <a href="https://github.com/2angeld1" target="_blank" class="contact-value">github.com/2angeld1</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Portafolio</span>
+            <a href="https://nexus-hub-af.vercel.app" target="_blank" class="contact-value">nexus-hub-af.vercel.app</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Skills -->
+      <div>
+        <h3 class="section-title-sidebar">Habilidades</h3>
+        <ul class="skills-list">
+          <li class="skill-tag">React.js</li>
+          <li class="skill-tag">Angular</li>
+          <li class="skill-tag">TypeScript</li>
+          <li class="skill-tag">Rust</li>
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">Vite & Next.js</li>
+          <li class="skill-tag">Tailwind CSS</li>
+          <li class="skill-tag">React Native</li>
+          <li class="skill-tag">Expo & Capacitor</li>
+          <li class="skill-tag">Node.js</li>
+          <li class="skill-tag">FastAPI</li>
+          <li class="skill-tag">C# .NET</li>
+          <li class="skill-tag">Prisma & SQLx</li>
+          <li class="skill-tag">PostgreSQL</li>
+          <li class="skill-tag">MongoDB</li>
+          <li class="skill-tag">Playwright</li>
+          <li class="skill-tag">Applied AI</li>
+          <li class="skill-tag">Model Context Protocol</li>
+          <li class="skill-tag">DDD Architecture</li>
+          <li class="skill-tag">Clean Architecture</li>
+          <li class="skill-tag">Cargo Workspaces</li>
+          <li class="skill-tag">Docker</li>
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <div>
+        <h3 class="section-title-sidebar">Idiomas</h3>
+        <ul class="languages-list">
+          <li class="language-item">
+            <span class="language-name">Español</span>
+            <span class="language-level">Nativo</span>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Inglés</span>
+            <span class="language-level">Intermedio</span>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Portugués</span>
+            <span class="language-level">Básico</span>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Main Content / Right Column -->
+    <main class="main-content">
+      
+      <!-- Profile Section -->
+      <section>
+        <p class="profile-summary">
+          <strong>Senior Software Architect y Fullstack Lead</strong> con más de 4 años de experiencia diseñando y construyendo ecosistemas tecnológicos complejos de alto rendimiento. Especialista en la orquestación de migraciones críticas de software, transformando plataformas heredadas (monolitos) en microservicios modernos, desacoplados y escalables bajo principios SOLID y Clean Architecture.
+          Liderazgo técnico comprobado en la integración de <strong>IA Aplicada (FastAPI, Rust, LLMs, Model Context Protocol - MCP)</strong> y automatización de procesos web de extremo a extremo. Habilidad comprobada para coordinar todas las fases del ciclo de desarrollo de software, desde la conceptualización de propuestas tecnológicas hasta el despliegue estable en producción.
+        </p>
+      </section>
+
+      <!-- Employment Section -->
+      <section>
+        <h2 class="section-title">Experiencia Laboral</h2>
+        <div class="experience-list">
+          
+          <!-- Job 1 -->
+          <div class="experience-item">
+            <div class="item-header">
+              <span class="item-title">Analyst Programmer / Frontend Developer</span>
+              <span class="item-period">Mar 2025 - Presente</span>
+            </div>
+            <div class="item-company">Payday Software / Sosa & Cia, Panamá</div>
+            <ul class="item-bullets">
+              <li><strong>Orquestación del pivot arquitectónico</strong> de un sistema monolítico legacy en Razor Pages a un ecosistema desacoplado y de alto rendimiento utilizando React y C# Clean Architecture.</li>
+              <li>Estandarización del <strong>Frontend Enterprise Pattern</strong>, definiendo un sistema de diseño e implementación de componentes atómicos reutilizables que aceleró los ciclos de entrega de features.</li>
+              <li>Liderazgo en la negociación de contratos de API e integración entre el frontend de React y microservicios de C# para la validación y normalización robusta de flujos de datos.</li>
+              <li>Implementación de un framework completo de pruebas <strong>E2E automatizadas con Playwright</strong>, mitigando regresiones críticas en producción.</li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="experience-item">
+            <div class="item-header">
+              <span class="item-title">Software Engineer – Outsourcing & Maintenance</span>
+              <span class="item-period">Mayo 2022 - Mar 2025</span>
+            </div>
+            <div class="item-company">Logic Studio S.A., Panamá (Remoto)</div>
+            <ul class="item-bullets">
+              <li>Mantenimiento evolutivo, soporte y desarrollo de nuevas características críticas para aplicaciones empresariales de clientes Tier-1.</li>
+              <li>Desarrollo y optimización de interfaces en el frontend con <strong>Angular</strong>, implementando programación reactiva con <strong>RxJS</strong> y gestión de estado escalable.</li>
+              <li><strong>Consultoría de pruebas automatizadas E2E</strong> para la <strong>Autoridad del Canal de Panamá (ACP)</strong>, estructurando arquitecturas de pruebas escalables con Playwright y Selenium.</li>
+              <li>Colaboración activa en la migración a gran escala de CMS Legacy de Joomla 3 a Joomla 4, adaptando componentes a medida mediante pruebas iterativas y refactorización.</li>
+              <li>Clientes corporativos atendidos: Ricardo Pérez Toyota, Banesco, Caja de Ahorros, Superintendencia de Seguros, Towerbank y Autoridad del Canal de Panamá.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Page break for cleaner PDF printing -->
+      <div class="page-break"></div>
+
+      <!-- Projects Section -->
+      <section>
+        <h2 class="section-title">Ecosistema de Proyectos (Gosen Tech)</h2>
+        <div class="projects-list">
+          
+          <!-- Project 1: Gosen Engines -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">Gosen Engines — Core Computational Suite</span>
+              <span class="item-period">Rust (Workspaces), Axum, Tokio, SQLx</span>
+            </div>
+            <div class="item-company">Arquitecto Principal & Creador</div>
+            <ul class="item-bullets">
+              <li>Diseño e implementación de un <strong>monorepo de alto rendimiento en Rust</strong> estructurado en Cargo Workspaces para orquestar microservicios computacionales y de IA paralelos del ecosistema.</li>
+              <li>Desarrollo de `kitchy-router` para el broker OCR de facturas y `verso-router` para la compilación, traducción y validación estricta de código sintáctico AST.</li>
+              <li>Desarrollo de un pipeline ultraveloz de <strong>procesamiento de imágenes</strong> para la compresión y redimensionado de imágenes crudas a formato WebP en fracciones de milisegundos.</li>
+            </ul>
+          </div>
+
+          <!-- Project 2: Verso -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">Verso — Legacy Migrator SaaS</span>
+              <span class="item-period">Next.js, Rust, Gemini, Cohere, PostgreSQL</span>
+            </div>
+            <div class="item-company">Fundador & CTO</div>
+            <ul class="item-bullets">
+              <li>Creador de una <strong>herramienta de traducción automatizada de código legacy</strong> (PHP, COBOL, Java) a tecnologías modernas, integrándose directamente con repositorios de GitHub.</li>
+              <li>Arquitectura híbrida que complementa la traducción semántica de LLMs con validaciones rígidas del parser de compilador en Rust a nivel de Árbol Sintáctico (AST).</li>
+              <li>Implementación de un motor de <strong>caché en memoria a nivel AST</strong> (SHA256) para evitar el re-procesamiento de funciones comunes, reduciendo costos de tokens de IA en un 70%.</li>
+            </ul>
+          </div>
+
+          <!-- Project 3: Muelle -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">Muelle — Inteligencia Logística Avanzada</span>
+              <span class="item-period">Next.js 16, FastAPI, Playwright, EasyOCR, MongoDB</span>
+            </div>
+            <div class="item-company">Fundador & Arquitecto de IA</div>
+            <ul class="item-bullets">
+              <li>Plataforma SaaS para la optimización de itinerarios aduaneros e importaciones globales en Centroamérica.</li>
+              <li>Desarrollo de <strong>Caitlyn AI (Itinerary Hunter)</strong>, un agente autónomo de Playwright y EasyOCR que navega en portales de navieras (Maersk, MSC, etc.) en paralelo y transmite eventos de logs en tiempo real vía WebSockets.</li>
+              <li>Construcción de un <strong>Auditor IA de Aduanas</strong> que cruza facturas y packing lists con declaraciones arancelarias de forma automatizada para prevenir costosas multas de transcripción.</li>
+            </ul>
+          </div>
+
+          <!-- Project 4: Kitchy & Vesta -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">Kitchy & Vesta — Ecosistema POS de Próxima Generación</span>
+              <span class="item-period">React Native, Expo, Node.js, Express, MongoDB</span>
+            </div>
+            <div class="item-company">Lead Architect & Fullstack Developer</div>
+            <ul class="item-bullets">
+              <li>POS dual para comercios locales: <strong>Kitchy</strong> (gastronomía, belleza, retail) y <strong>Vesta</strong> (lavautos, jardinería y servicios).</li>
+              <li>Estructura de 18 módulos en producción (comisiones por estilista, turnos, inventario multi-sucursal y BI).</li>
+              <li>Integración del <strong>Costeo Inteligente en 3 Niveles</strong> con Caitlyn: consulta stock de inventario, precios oficiales de combustible (SNE), canasta básica (ACODECO), y alimentos frescos en Merca Panamá vía APIs en vivo con fallback de LLMs.</li>
+            </ul>
+          </div>
+
+          <!-- Project 5: AgroLink -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">AgroLink Panamá — Ecosistema de Suministro Agrícola</span>
+              <span class="item-period">React Native, Expo, Express, MongoDB, Socket.io</span>
+            </div>
+            <div class="item-company">Co-Founder & Lead Solutions Architect</div>
+            <ul class="item-bullets">
+              <li>Plataforma 'inDrive' para el agro, que conecta a productores del campo panameño directamente con compradores comerciales, optimizando la logística de distribución de alimentos frescos.</li>
+              <li>Desarrollo del flujo móvil multipropósito con validación de despacho basada en <strong>códigos QR dinámicos</strong> y tracking GPS en tiempo real para asegurar la cadena de custodia.</li>
+            </ul>
+          </div>
+
+          <!-- Project 6: Aden/Hive Integration (IonicNotif) -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">Aden/Hive Integration (IonicNotif) — Applied AI & MCP Hub</span>
+              <span class="item-period">Ionic (React), FastAPI, Scikit-Learn, OSRM</span>
+            </div>
+            <div class="item-company">AI Integration Architect</div>
+            <ul class="item-bullets">
+              <li>Pionero en la implementación de <strong>Model Context Protocol (MCP)</strong> dentro de una infraestructura Hive (Aiden, Silicon Valley), permitiendo la comunicación fluida entre LLMs locales y herramientas externas.</li>
+              <li>Ecosistema de IA Local: Diseño de un entorno privado para la ejecución de IA local con enfoque en gestión documental segura y flujos automatizados de notificación.</li>
+              <li>Consultoría Técnica: Actuó como puente entre infraestructura avanzada de Silicon Valley y aplicaciones prácticas web/móviles.</li>
+            </ul>
+          </div>
+
+          <!-- Project 7: VeloDrive -->
+          <div class="project-item">
+            <div class="item-header">
+              <span class="item-title">VeloDrive — Immersive Automotive Experience</span>
+              <span class="item-period">React, Vite, Tailwind CSS, Node.js, Zustand</span>
+            </div>
+            <div class="item-company">Lead Creative Technologist & Architect</div>
+            <ul class="item-bullets">
+              <li>Desarrollo de un <strong>Automotive Hub</strong> de extremo a extremo que incluye prototipado 3D para el mantenimiento y personalización de vehículos, empujando los límites de visualización móvil-web.</li>
+              <li>Gestión de Ciclo de Vida Complejo: Construcción de un sistema robusto para el rastreo de historial de vehículos, programas de mantenimiento e integración de marketplace con animaciones premium de UI/UX.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section>
+        <h2 class="section-title">Educación</h2>
+        <div class="education-item">
+          <div class="item-header">
+            <span class="education-degree">Licenciatura en Desarrollo de Software (Graduado)</span>
+            <span class="item-period">2019 - 2026</span>
+          </div>
+          <div class="education-institution">Universidad Tecnológica de Panamá (UTP)</div>
+        </div>
+        <br>
+        <div class="education-item">
+          <div class="item-header">
+            <span class="education-degree">Bachiller en Ciencias</span>
+            <span class="item-period">Graduado</span>
+          </div>
+          <div class="education-institution">Instituto América, Panamá</div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

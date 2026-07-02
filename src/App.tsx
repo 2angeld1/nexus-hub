@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Hero } from "./sections/Hero";
-import { Skills } from "./sections/Skills";
-import { Experience } from "./sections/Experience";
-import { Caitlyn } from "./sections/Caitlyn";
-import { Projects } from "./sections/Projects";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { ServicesPage } from "./pages/ServicesPage";
 import { Footer } from "./sections/Footer";
 import { ParticlesBackground } from "./components/ParticlesBackground";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
@@ -12,9 +10,19 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./styles/main.scss";
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,23 +40,33 @@ function App() {
     }
   };
 
+  const navItems = isHome
+    ? ["Skills", "Experience", "Caitlyn", "Projects"]
+    : [];
+
   return (
-    <ThemeProvider>
+    <>
       {/* Particles Background */}
       <ParticlesBackground />
 
       {/* Theme Switcher Floating Button */}
       <ThemeSwitcher />
 
+      <ScrollToTop />
+
       {/* Navigation */}
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav__container">
-          <span className="nav__logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <Link
+            to="/"
+            className="nav__logo"
+            style={{ textDecoration: "none" }}
+          >
             NEXUS<span>.</span>HUB
-          </span>
+          </Link>
 
           <div className="nav__links">
-            {["Skills", "Experience", "Caitlyn", "Projects"].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -57,10 +75,29 @@ function App() {
                 {item}
               </button>
             ))}
-            <a href="tel:+50768014613" className="nav__cta">Contáctame</a>
+            <Link to="/services" className="nav__link">
+              Services
+            </Link>
+            {isHome ? (
+              <a href="tel:+50768014613" className="nav__cta">
+                Contáctame
+              </a>
+            ) : (
+              <a
+                href={`https://wa.me/50768014613?text=${encodeURIComponent("Hola Angel, vi tu portafolio y me interesa cotizar un servicio.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav__cta"
+              >
+                WhatsApp
+              </a>
+            )}
           </div>
 
-          <button className="nav__mobile-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="nav__mobile-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -75,7 +112,7 @@ function App() {
             exit={{ opacity: 0, x: 100 }}
             className="mobile-menu"
           >
-            {["Skills", "Experience", "Caitlyn", "Projects"].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -84,21 +121,56 @@ function App() {
                 {item}
               </button>
             ))}
-            <a href="tel:+50768014613" className="mobile-menu__link" style={{ color: 'var(--color-primary)' }}>Contáctame</a>
+            <Link
+              to="/services"
+              className="mobile-menu__link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Services
+            </Link>
+            {isHome ? (
+              <a
+                href="tel:+50768014613"
+                className="mobile-menu__link"
+                style={{ color: "var(--color-primary)" }}
+              >
+                Contáctame
+              </a>
+            ) : (
+              <a
+                href={`https://wa.me/50768014613?text=${encodeURIComponent("Hola Angel, vi tu portafolio y me interesa cotizar un servicio.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-menu__link"
+                style={{ color: "var(--color-primary)" }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                WhatsApp
+              </a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
 
       <main>
-        <Hero />
-        <Skills />
-        <Experience />
-        <Caitlyn />
-        <Projects />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Routes>
       </main>
 
       {/* Footer */}
       <Footer />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

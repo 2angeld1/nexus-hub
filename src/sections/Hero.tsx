@@ -133,8 +133,9 @@ export const Hero = () => {
             {primaryCta}
           </button>
           <a
-            href="/projects/AngelFernandezResume2026.pdf"
-            download="AngelFernandezResume2026.pdf"
+            href="/projects/CV_Angel_David_Fernandez.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hero__cta hero__cta--secondary"
             style={{ display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
           >
