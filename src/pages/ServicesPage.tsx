@@ -17,6 +17,7 @@ import {
   fadeIn,
   staggeredContainer,
   titleReveal,
+  popIn
 } from "../animations/variants";
 
 type Lang = "es" | "en";
@@ -61,6 +62,20 @@ export const ServicesPage = () => {
       <section className="services-hero">
         <div className="services-hero__bg" />
         <div className="services-hero__content">
+          <motion.div
+            variants={popIn}
+            initial="hidden"
+            animate="show"
+            className="hero__avatar"
+            style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}
+          >
+            <img
+              src="/projects/profile.jpeg"
+              alt="Angel Fernandez"
+              style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--color-primary)', boxShadow: '0 0 20px rgba(var(--color-primary-rgb), 0.3)' }}
+            />
+          </motion.div>
+
           <motion.span
             variants={fadeIn}
             initial="hidden"
